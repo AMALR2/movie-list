@@ -4,7 +4,6 @@ import axios from "axios";
 export const User = () => {
     const [genre, setGenre] = useState([])
     const [movies, setMovies] = useState([])
-    // const [selectedGenre, setSelectedGenre] = useState()
     const [filteredMovies, setFilteredMovies] = useState(movies)
     axios.get('http://localhost:3000/api/genres')
         .then((res) => setGenre(res.data))
