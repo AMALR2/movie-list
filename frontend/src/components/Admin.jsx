@@ -4,6 +4,7 @@ import axios from "axios";
 export const Admin=()=>{
     const [auth,setAuth]=useState(false)
     const [uname,setUname]=useState("")
+    const [token,setToken]=useState()
     const navigate=useNavigate()
     axios.defaults.withCredentials=true
 
@@ -12,6 +13,7 @@ export const Admin=()=>{
             .then(res=>{
                 if(res.data.status==="Success"){
                     setAuth(true)
+                    setToken(res.data)
                     setUname(res.data.name)
                 }
                 else{
@@ -20,7 +22,7 @@ export const Admin=()=>{
                 }
             })
             .catch(err=>console.log(err))
-    },[])
+    },[token])
     const deleteHandler=()=>{
         axios.get('http://localhost:3000/api/admin/delete')
             .then((res)=>console.log(res))

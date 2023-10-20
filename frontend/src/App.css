@@ -1,0 +1,29 @@
+.body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 40px;
+}
+.movieContainer{
+    width: 25%;
+    height: 100vh;
+    margin: 30px;
+    padding: 20px;
+    background-color: #fee;
+}
+.navbar{
+    background-color: #5bcbf7;
+    display: flex;
+    justify-content: space-around;
+}
+button{
+    background-color: #5bcbf7;
+    border: 0;
+    height: 10vh;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 24px;
+}
+button:hover{
+    background-color: red;
+}

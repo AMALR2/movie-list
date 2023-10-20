@@ -1,7 +1,11 @@
 const db=require('../config/config')
 const userModel={
-    getAllUsers:(callback)=>{
+    getAllMovies:(callback)=>{
         const sql = "SELECT * FROM `movie`"
+        db.query(sql,callback)
+    },
+    getAllGenres:(callback)=>{
+        const sql = "SELECT * FROM `genre`"
         db.query(sql,callback)
     }
 }
