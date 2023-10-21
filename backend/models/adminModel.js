@@ -24,6 +24,18 @@ const adminModel = {
             ]
             db.query(sql, [values], callback)
         })
+    },
+    postMovie: (req, res, callback) => {
+        const sql = "INSERT INTO `movie`(`title`,`year`,`rating`,`genre`,`description`,`poster`) VALUES (?)"
+        const values=[
+            req.body.title,
+            req.body.year,
+            req.body.rating,
+            req.body.genre,
+            req.body.description,
+            req.body.poster
+        ]
+        db.query(sql, [values], callback)
     }
 }
 module.exports = adminModel

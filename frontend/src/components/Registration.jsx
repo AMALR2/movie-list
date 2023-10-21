@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios"
 import { Link } from "react-router-dom"
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 
 export const Registration = () => {
     const nullAdmin={
@@ -13,17 +13,20 @@ export const Registration = () => {
     const registrationHandler=(e)=>{
         e.preventDefault()
         if(admin.uname.length===0){
-            swal("ERROR","Username field can't be empty","error")
+            Swal.fire("Username Required","Username field can't be empty.","error")
         }
         else if(admin.email.length===0){
-            swal("ERROR","email field can't be empty","error")
+            Swal.fire("Email Required","Email field can't be empty.","error")
         }
         else if(admin.password.length===0){
-            swal("ERROR","email field can't be empty","error")
+            Swal.fire("Password Required","Password field can't be empty.","error")
+        }
+        else if(admin.password.length<8){
+            Swal.fire("Password Too Short", "Your password must be at least 8 characters long.", "error")
         }
         else{
             axios.post('http://localhost:3000/api/admin/registration',admin)
-            .then((res)=>swal("Success", "Admin registered", "success"))
+            .then((res)=>Swal.fire("Registration Successful", "You have been registered succesfully.", "success"))
             .catch((err)=>console.log(err))
             setAdmin(nullAdmin)
     }}

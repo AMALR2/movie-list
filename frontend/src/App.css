@@ -12,18 +12,33 @@
     background-color: #fee;
 }
 .navbar{
-    background-color: #5bcbf7;
+    background-color: #007bff;
     display: flex;
     justify-content: space-around;
 }
-button{
-    background-color: #5bcbf7;
-    border: 0;
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+.navbar>button{
     height: 10vh;
-    padding: 10px 30px;
-    border-radius: 10px;
-    font-size: 24px;
 }
 button:hover{
     background-color: red;
+}
+input,select{
+    width: 200px;
+    padding: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f1f1f1;
 }

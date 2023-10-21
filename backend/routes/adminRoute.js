@@ -4,7 +4,6 @@ const adminController=require('../controllers/adminController')
 const router=express.Router()
 const auth_user=(req,res,next)=>{
     const token=req.cookies.token
-    console.log(token)
     if(!token){
         return res.json({error:"Token not found"})
     }
@@ -21,7 +20,8 @@ const auth_user=(req,res,next)=>{
     }
 }
 router.get('/',auth_user,adminController.getAdmin)
-router.get('/delete',adminController.deleteAdmin)
+router.get('/logout',adminController.deleteAdmin)
 router.post('/login',adminController.postLogin)
 router.post('/registration',adminController.postRegistration)
+router.post('/add',adminController.postMovie)
 module.exports=router

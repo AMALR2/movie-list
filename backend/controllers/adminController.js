@@ -1,12 +1,12 @@
-const adminModel=require('../models/adminModel')
-const jwt=require('jsonwebtoken')
-const bcrypt=require('bcrypt')
+const adminModel = require('../models/adminModel')
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 const adminController = {
-    getAdmin: (req,res)=>{
-        return res.status(200).json({status:"Success",name:req.name})
+    getAdmin: (req, res) => {
+        return res.status(200).json({ status: "Success", name: req.name })
     },
     postLogin: (req, res) => {
-        adminModel.postLogin(req,res,(err,data)=>{
+        adminModel.postLogin(req, res, (err, data) => {
             if (err) {
                 res.json(err)
             }
@@ -32,13 +32,18 @@ const adminController = {
         })
     },
     postRegistration: (req, res) => {
-        adminModel.postRegistration(req,res,(err,data)=>{
-            err?res.json(err):res.json(data)
+        adminModel.postRegistration(req, res, (err, data) => {
+            err ? res.json(err) : res.json(data)
         })
     },
-    deleteAdmin: (req, res)=> {
+    deleteAdmin: (req, res) => {
         res.clearCookie('token')
-        res.json({status:"Success"})
+        res.json({ status: "Success" })
+    },
+    postMovie: (req, res) => {
+        adminModel.postMovie(req, res, (err, data) => {
+            err ? res.json(err) : res.json(data)
+        })
     }
 }
 module.exports = adminController

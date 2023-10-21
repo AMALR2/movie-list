@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import Swal from "sweetalert2";
 
 
 export const Login = () => {
@@ -14,15 +15,17 @@ export const Login = () => {
     const loginHandler = (e) => {
         e.preventDefault()
         axios.post('http://localhost:3000/api/admin/login', admin)
-
             .then((res) => {
                 console.log(res)
                 if(res.data.status==="Successful Login"){
+                    Swal.fire("Login Successful","You are now logged in!","success")
                     navigate('/admin')
                     setAdmin(nullAdmin)
                 }
             })
-            .catch((err) => console.log(err))
+            .catch((err) => {
+                Swal.fire("Login Failed","Incorrect credentials. Try again.","error")
+                console.log(err)})
     }
     return (
         <>
