@@ -8,10 +8,10 @@ export const AddMovie = () => {
         year: '',
         rating: '',
         genre: '',
-        description: '',
-        poster: ''
+        description: ''
     }
     const [newMovie, setNewMovie] = useState(nullMovie)
+    const [imageData, setImageData] = useState()
     const [movies, setMovies] = useState([])
     const [genres, setGenres] = useState([])
     const currentDate = new Date();
@@ -45,11 +45,22 @@ export const AddMovie = () => {
         else if (newMovie.description.length === 0) {
             Swal.fire("Description Required", "Description field can't be empty.", "error")
         }
-        else if (newMovie.poster === null) {
+        else if (imageData === null) {
             Swal.fire("ERROR", "poster field can't be empty.", "error")
         }
         else {
-            axios.post('http://localhost:3000/api/admin/add', newMovie)
+            const formData = new FormData()
+            formData.append('poster', imageData)
+            formData.append('title', newMovie.title);
+            formData.append('year', newMovie.year);
+            formData.append('rating', newMovie.rating);
+            formData.append('genre', newMovie.genre);
+            formData.append('description', newMovie.description);
+            axios.post('http://localhost:3000/api/admin/add', formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
+              })
                 .then((res) => Swal.fire("Success", "Movie added succesfully.", "success"))
                 .catch((err) => console.log(err))
             setNewMovie(nullMovie)
@@ -68,7 +79,7 @@ export const AddMovie = () => {
             </select>
             <input type="text" placeholder="description" name="description" value={newMovie.description} onChange={(e) => setNewMovie((prev) => ({ ...prev, [e.target.name]: e.target.value }))}></input>
             <span>Poster: </span>
-            <input type="file"></input>
+            <input type="file" name="poster" onChange={(e) => setImageData(e.target.files[0])}></input>
             <button type="submit">Submit</button>
         </form>
     )

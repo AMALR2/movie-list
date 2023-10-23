@@ -9,6 +9,7 @@ app.use(cors({
 }))
 app.use(express.json())
 app.use(cookieParser())
+app.use(express.static('public'))
 app.use('/api',require('./routes/userRoute'))
 app.use('/api/admin',require('./routes/adminRoute'))
 app.listen(3000)

@@ -27,13 +27,17 @@ const adminModel = {
     },
     postMovie: (req, res, callback) => {
         const sql = "INSERT INTO `movie`(`title`,`year`,`rating`,`genre`,`description`,`poster`) VALUES (?)"
-        const values=[
+        const poster=req.file.filename
+        if (!poster) {
+            return res.status(400).json({ error: 'No image provided' });
+        }
+        const values = [
             req.body.title,
             req.body.year,
             req.body.rating,
             req.body.genre,
             req.body.description,
-            req.body.poster
+            poster
         ]
         db.query(sql, [values], callback)
     }
