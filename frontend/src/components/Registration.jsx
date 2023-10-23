@@ -31,7 +31,7 @@ export const Registration = () => {
             setAdmin(nullAdmin)
     }}
     return (
-        <>
+        <div className="loginContainer">
             <form onSubmit={registrationHandler}>
                 <input type="text" placeholder="Username" name="uname" value={admin.uname} onChange={(e)=>setAdmin((prev)=>({...prev,[e.target.name]:e.target.value}))}></input>
                 <input type="mail" placeholder="email" name="email" value={admin.email} onChange={(e)=>setAdmin((prev)=>({...prev,[e.target.name]:e.target.value}))}></input>
@@ -40,6 +40,6 @@ export const Registration = () => {
             </form>
             <span>Already an admin?</span>
             <Link to="/admin/login">Login</Link>
-        </>
+        </div>
     )
 }

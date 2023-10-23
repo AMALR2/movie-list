@@ -46,11 +46,15 @@ export const Admin = () => {
     if (auth) {
         return (
             <>
+            <div className="navbar">
                 <h2>HOME</h2>
                 <span>Hello {uname}</span>
                 <button onClick={deleteHandler}>Logout</button>
+            </div>
+            <div className="loginContainer">
                 <h2>Add new movie</h2>
                 <AddMovie />
+            </div>
             </>
         )
     }

@@ -28,7 +28,7 @@ export const Login = () => {
                 console.log(err)})
     }
     return (
-        <>
+        <div className="loginContainer">
             <h2>Login</h2>
             <form onSubmit={loginHandler}>
                 <input type="mail" placeholder="email" name="email" value={admin.email} onChange={(e) => setAdmin((prev) => ({ ...prev, [e.target.name]: e.target.value }))}></input>
@@ -37,6 +37,6 @@ export const Login = () => {
             </form>
             <span>New admin</span>
             <Link to="/admin/registration">Register</Link>
-        </>
+        </div>
     )
 }

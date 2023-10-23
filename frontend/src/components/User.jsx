@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDisplay, faStar} from '@fortawesome/free-solid-svg-icons'
+import { faDisplay, faStar } from '@fortawesome/free-solid-svg-icons'
 
 export const User = () => {
     const [genre, setGenre] = useState([])
@@ -17,8 +17,8 @@ export const User = () => {
     }, [])
     return (
         <>
-            <h2>Movie List</h2>
             <div className='navbar'>
+                <h2>Movie List</h2>
                 <button onClick={() => setFilteredMovies(movies)}>All</button>
                 {genre.map((item) =>
                     <button onClick={() => setFilteredMovies(movies.filter(item2 => item2.genre === item.id))} key={item.id}>{item.genre}</button>
