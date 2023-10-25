@@ -36,7 +36,7 @@ export const Login = () => {
                 <button type="submit">Login</button>
             </form>
             <span>New admin</span>
-            <Link to="/admin/registration">Register</Link>
+            <Link to="/registration">Register</Link>
         </div>
     )
 }

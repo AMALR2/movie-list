@@ -19,7 +19,7 @@ export const Admin = () => {
                 }
                 else {
                     setAuth(false)
-                    navigate('/admin/login')
+                    navigate('/login')
                 }
             })
             .catch(err => console.log(err))

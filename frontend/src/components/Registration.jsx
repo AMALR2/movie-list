@@ -39,7 +39,7 @@ export const Registration = () => {
                 <button type="submit">Register</button>
             </form>
             <span>Already an admin?</span>
-            <Link to="/admin/login">Login</Link>
+            <Link to="/login">Login</Link>
         </div>
     )
 }

@@ -1,7 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+
 .body {
     display: flex;
     flex-wrap: wrap;
@@ -11,14 +8,16 @@
 
 body {
     background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
 .movieContainer {
     width: 25%;
-    height: 100vh;
+    height: 125vh;
     margin: 30px;
     padding: 20px;
-    background-color: #fee;
+    background-color: #ecc;
 }
 
 .navbar {
@@ -30,7 +29,6 @@ body {
     padding: 0 10px;
     height: 8vh;
 }
-
 button {
     display: inline-block;
     padding: 10px 20px;
