@@ -19,7 +19,8 @@ export const Admin = () => {
                 }
                 else {
                     setAuth(false)
-                    navigate('/login')
+                    const isAdmin=true
+                    navigate(`/login/${isAdmin}`)
                 }
             })
             .catch(err => console.log(err))
@@ -41,7 +42,6 @@ export const Admin = () => {
                 .catch((err) => console.log(err))
             }
           })
-       
     }
     if (auth) {
         return (

@@ -1,5 +1,8 @@
 const userModel=require('../models/userModel')
 const userController = {
+    getUser: (req, res) => {
+        return res.status(200).json({ status: "Success", name: req.name })
+    },
     getAllMovies: (req, res) => {
         userModel.getAllMovies((err,data)=>{
             if (err) {
@@ -22,6 +25,11 @@ const userController = {
     getAllGenres: (req, res) => {
         userModel.getAllGenres((err,data)=>{
             err?res.json(err):res.json(data)
+        })
+    },
+    postRegistration: (req, res) => {
+        userModel.postRegistration(req, res, (err, data) => {
+            err ? res.json(err) : res.json(data)
         })
     }
 }
